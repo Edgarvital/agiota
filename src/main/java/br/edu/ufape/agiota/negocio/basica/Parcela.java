@@ -15,8 +15,4 @@ public class Parcela {
 
     private Date dataVencimento;
     private BigDecimal valorVencimento;
-
-    @ManyToOne
-    private Emprestimo emprestimo;
-
 }

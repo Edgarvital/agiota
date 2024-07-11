@@ -6,8 +6,11 @@ import br.edu.ufape.agiota.fachada.exceptions.RegistroNaoEncontradoException;
 import br.edu.ufape.agiota.fachada.exceptions.SenhaNulaException;
 import br.edu.ufape.agiota.negocio.basica.Avaliacao;
 import br.edu.ufape.agiota.negocio.basica.Cliente;
+import br.edu.ufape.agiota.negocio.basica.Parcela;
 import br.edu.ufape.agiota.negocio.services.interfaces.AvaliacaoServiceInterface;
 import br.edu.ufape.agiota.negocio.services.interfaces.ClienteServiceInterface;
+import br.edu.ufape.agiota.negocio.services.interfaces.ParcelaServiceInterface;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +23,9 @@ public class Fachada {
 
     @Autowired
     private AvaliacaoServiceInterface avaliacaoService;
+
+    @Autowired
+    private ParcelaServiceInterface parcelaService;
 
     public List<Cliente> listarClientes() {
         return clienteService.listarClientes();
@@ -43,5 +49,13 @@ public class Fachada {
 
     public List<Avaliacao> buscarAvaliacoesDoUsuario(long idUsuario) {
         return avaliacaoService.buscarAvaliacoesDoUsuario(idUsuario);
+    }
+
+    public List<Parcela> listarParcelas(){
+        return parcelaService.listarParcelas();
+    }
+
+    public Parcela buscarParcela(long id){
+        return parcelaService.buscarParcela(id);
     }
 }
